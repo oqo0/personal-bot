@@ -5,7 +5,7 @@ class Ping(commands.Cog, name="Ping"):
         self.bot = bot
 
     @commands.command()
-    async def ping(self, ctx: commands.Context):
+    async def p(self, ctx: commands.Context):
         await ctx.send("Pong")
 
 def setup(bot: commands.Bot):
