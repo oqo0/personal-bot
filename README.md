@@ -2,5 +2,8 @@
   <img src="https://wmpics.pics/di-KQ5Y.png" />
 </p>
 
-# Personal Discord bot
+<p align="center">
+  # Personal Discord bot
+</p>
+
 This bot was created to make usage of personal servers easier.
