@@ -1,9 +1,7 @@
 <p align="center">
-  <img src="https://wmpics.pics/di-KQ5Y.png" />
+  <img width="200" src="https://wmpics.pics/di-KQ5Y.png" alt="Personal Bot logo">
 </p>
 
-<p align="center">
-  # Personal Discord bot
-</p>
+<h1 align="center">Personal Discord bot</h1>
 
 This bot was created to make usage of personal servers easier.
