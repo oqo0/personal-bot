@@ -7,7 +7,7 @@ Functions:
 - Fields for notes
 - Saving messages
 - Task Manager
-- - Schedule of completed tasks (productivity chart)
+- Schedule of completed tasks (productivity chart)
 - Task Reminder
 - The Eisenhower Matrix
 - Protected channels (with a white list)
