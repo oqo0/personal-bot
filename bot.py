@@ -2,14 +2,19 @@ import discord
 from discord.ext import commands
 import os
 import os.path
+import sys
 import yaml
+
+
+sys.dont_write_bytecode = True
 
 
 bot = commands.Bot(command_prefix = '!', intents = discord.Intents.all())
 
 
-bot.load_extension("commands.setup")
-bot.load_extension("commands.hard_reset")
+# loading cogs
+bot.load_extension(f"modules.setup")
+bot.load_extension(f"modules.hard_reset")
 
 
 # Bot is ready
@@ -25,6 +30,7 @@ if (os.path.isfile('token.yaml') == True):
         token = yaml.safe_load(stream)
     
     try:
+        #starting a bot
         bot.run(token['app_token'])
     except:
         print("Error. Something is wrong with your bot's token")

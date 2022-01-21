@@ -13,7 +13,6 @@ class Setup(commands.Cog, name="Setup"):
         self.bot = bot
 
 
-    # setting up all the channels
     @commands.command()
     @has_permissions(administrator=True)
     async def setup(self, ctx: commands.Context):
