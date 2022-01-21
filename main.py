@@ -17,15 +17,23 @@ bot.load_extension(f"modules.setup")
 bot.load_extension(f"modules.hard_reset")
 
 
+# reading config
+if (os.path.isfile('config.yaml') == True):
+    # reading config
+    with open("config.yaml", "r") as stream:
+        config = yaml.safe_load(stream)
+
+
 # Bot is ready
 @bot.event
 async def on_ready():
+    await bot.change_presence(activity = discord.Game(name = config['bot_status']))
     print('Bot started')
 
 
 # creating a token.yaml file if it doesn't exists
 if (os.path.isfile('token.yaml') == True):
-    # reading an app token from token.yaml
+    # reading an app token
     with open("token.yaml", "r") as stream:
         token = yaml.safe_load(stream)
     
@@ -41,4 +49,4 @@ else:
         f.write('# your application token goes here\n')
         yaml.dump(data, f)
     
-    print("Paste your bot's token in token.yaml")
+    print("Error. Something is wrong with your bot's token or config.")

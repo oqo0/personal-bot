@@ -1,0 +1,14 @@
+bot_status: "Im workin"
+
+
+notifications_channel: true
+
+
+# do you want to use notes?
+notes_channels: true
+# do you want to use a task manager?
+task_manager: true
+
+
+# !hard_reset command clears all the channels on the server
+hard_reset_command: false

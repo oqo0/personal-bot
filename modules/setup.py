@@ -1,11 +1,12 @@
 import discord
 from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
+import yaml
 
-import bot
+import main
 
 
-bot = bot.bot
+main = main.bot
 
 
 class Setup(commands.Cog, name="Setup"):
