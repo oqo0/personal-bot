@@ -6,6 +6,7 @@ import sys
 import yaml
 
 
+# disabling bytecode (__pycache__)
 sys.dont_write_bytecode = True
 
 
