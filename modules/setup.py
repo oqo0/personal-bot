@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
 import yaml
+import os
 
 import main
 
@@ -48,9 +49,6 @@ class Setup(commands.Cog, name="Setup"):
             channels_my_day = await guild.create_text_channel('my-day', overwrites=overwrites, category=tasks_category)
             channels_all_tasks = await guild.create_text_channel('all-tasks', overwrites=overwrites, category=tasks_category)
 
-        with open('data/channels.yaml') as f:
-            channels = yaml.safe_load(f)
-
         chan = []
         chan.append(channels_history.id)
         chan.append(channels_notifications.id)
@@ -60,12 +58,22 @@ class Setup(commands.Cog, name="Setup"):
         chan.append(channels_important.id)
         chan.append(channels_my_day.id)
         chan.append(channels_all_tasks.id)
+        
+        categ = []
+        categ.append(notes_category.id)
+        categ.append(tasks_category.id)
 
-        channels = chan
+        if (os.path.isdir('data') == False):
+            os.mkdir('data')
 
-        # writing channels data in data/channels.yaml
+        # writing channels data
         with open('data/channels.yaml', 'w') as f:
-            yaml.dump(channels, f)
+            yaml.dump(chan, f)
+
+        # writing categories data
+        with open('data/categories.yaml', 'w') as f:
+            yaml.dump(categ, f)
+
 
         print('Setup completed')
     
