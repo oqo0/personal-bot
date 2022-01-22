@@ -3,7 +3,7 @@
 This bot was created to make usage of personal servers easier.
 > Keep in mind that this bot was designed ONLY for usage on a private personal servers.
 
-Functions:
+## Functions:
 - Fields for notes
 - Saving messages
 - Task Manager
@@ -41,6 +41,8 @@ Change setting in config.yaml as you want.
 
 You are ready to go!
 
-Bot commands:
-```!setup``` - install all channels and categoried to start working with the bot.
-```!hard_reset``` - delete all the channels and categories on the server.
+### Bot commands:
+```!setup``` - install all channels and categoried to start working with the bot. <br/> 
+```!reset``` - delete all the channels and categories that were created by a bot. <br/> 
+```!hard_reset``` - delete all the channels and categories on the server. <br/> 
+
