@@ -14,6 +14,7 @@ bot = commands.Bot(command_prefix = '!', intents = discord.Intents.all())
 
 # loading cogs
 bot.load_extension(f"modules.setup")
+bot.load_extension(f"modules.reset")
 bot.load_extension(f"modules.hard_reset")
 
 

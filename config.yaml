@@ -10,5 +10,7 @@ notes_channels: true
 task_manager: true
 
 
+# !reset command clears all the channels on the server that were used by a bot
+reset_command: true
 # !hard_reset command clears all the channels on the server
 hard_reset_command: true

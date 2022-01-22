@@ -13,14 +13,14 @@ import main
 main = main.bot
 
 
-class Hardreset(commands.Cog, name="Hardreset"):
+class Reset(commands.Cog, name="Reset"):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
 
     @commands.command()
     @has_permissions(administrator=True)
-    async def hard_reset(self, ctx: commands.Context):
+    async def reset(self, ctx: commands.Context):
         # reading config file
         try:
             with open("config.yaml", "r") as stream:
@@ -29,28 +29,39 @@ class Hardreset(commands.Cog, name="Hardreset"):
             print('Error. Looks like something is wrong with your config file.')
             return 0
 
-        if (config['hard_reset_command'] == False):
+        if (config['reset_command'] == False):
             await ctx.send(
-                '`!hard_reset` command is disabled by default. If you want to use it enable it in your `config.yaml` file and restart your bot.',
+                '`!reset` command is disabled by default. If you want to use it enable it in your `config.yaml` file and restart your bot.',
                 delete_after = 15
             )
             return 0
 
-        # deletes all the channels on the server
+
+        with open('data/channels.yaml') as f:
+            channels = yaml.safe_load(f)
+        
+        # deletes all the channels that were used by this bot
         guild = ctx.guild
 
-        for channel in guild.channels:
+        for c in channels:
+            channel = guild.get_channel(c)
             await channel.delete()
-            print(f"Channel #{channel.name} ({channel.id}) was deleted")
         
-        print('Hard reset completed')
+        # guild = ctx.guild
+        # for all_c in guild.channels:
+        #     for listed_c in channels:
+        #         if (all_c == listed_c):
+        #             await all_c.delete()
+        #             print(f"Channel #{all_c.name} ({all_c.id}) was deleted")
+
+        print('Reset completed')
 
 
-    @hard_reset.error
+    @reset.error
     async def kick_error(ctx, error):
         if isinstance(error, MissingPermissions):
             await ctx.send(content = f"You are missing permissions!", delete_after=5)
 
 
 def setup(bot: commands.Bot):
-    bot.add_cog(Hardreset(bot))
+    bot.add_cog(Reset(bot))
