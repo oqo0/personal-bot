@@ -3,7 +3,7 @@
 This bot was created to make usage of personal servers easier.
 > Keep in mind that this bot was designed ONLY for usage on a private personal servers.
 
-Functions:
+## Functions:
 - Fields for notes
 - Saving messages
 - Task Manager
