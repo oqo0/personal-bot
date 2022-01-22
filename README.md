@@ -41,7 +41,7 @@ Change setting in config.yaml as you want.
 
 You are ready to go!
 
-Bot commands: <br/>
+######Bot commands:<br/>
 ```!setup``` - install all channels and categoried to start working with the bot.<br/>
 ```!reset``` - delete all the channels and categories that were created by a bot.<br/>
 ```!hard_reset``` - delete all the channels and categories on the server.<br/>
