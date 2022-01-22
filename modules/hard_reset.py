@@ -27,7 +27,6 @@ class Hardreset(commands.Cog, name="Hardreset"):
                 config = yaml.safe_load(stream)
         except Exception as e:
             print('Error. Looks like something is wrong with your config file.')
-        
 
         if (config['hard_reset_command'] == False):
             await ctx.send(

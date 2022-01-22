@@ -11,4 +11,4 @@ task_manager: true
 
 
 # !hard_reset command clears all the channels on the server
-hard_reset_command: false
+hard_reset_command: true
