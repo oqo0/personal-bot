@@ -5,7 +5,6 @@ This bot was created to make usage of personal servers easier.
 
 ## Functions:
 - Fields for notes
-- Saving messages
 - Task Manager
 - Schedule of completed tasks (productivity chart)
 - Task Reminder
