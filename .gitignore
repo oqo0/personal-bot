@@ -2,3 +2,4 @@ __pycache__/
 data/
 token.yaml
 channels.yaml
+categories.yaml

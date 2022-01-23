@@ -13,10 +13,10 @@ sys.dont_write_bytecode = True
 bot = commands.Bot(command_prefix = '!', intents = discord.Intents.all())
 
 
-# loading cogs
-bot.load_extension(f"modules.setup")
-bot.load_extension(f"modules.reset")
-bot.load_extension(f"modules.hard_reset")
+# loading all cogs from /modules
+for file in os.listdir('modules'):
+    file = file[:-3] # removing .py
+    bot.load_extension(f"modules.{file}")
 
 
 # reading config
@@ -44,6 +44,7 @@ if (os.path.isfile('token.yaml') == True):
         bot.run(token['app_token'])
     except:
         print("Error. Something is wrong with your bot's token")
+
 else:
     with open('token.yaml', 'w') as f:
         data = {'app_token': "token"}

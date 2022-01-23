@@ -19,6 +19,11 @@ class Reset(commands.Cog, name="Reset"):
         self.bot = bot
 
 
+    @commands.Cog.listener()
+    async def on_ready(self: commands.Context):
+        print('Bot started')
+
+
     @commands.command()
     @has_permissions(administrator=True)
     async def reset(self, ctx: commands.Context):
@@ -46,10 +51,12 @@ class Reset(commands.Cog, name="Reset"):
         # deletes all the channels that were used by this bot
         guild = ctx.guild
 
+        #deleting all channels from channels.yaml
         for c in channels:
             channel = guild.get_channel(c)
             await channel.delete()
 
+        #deleting all categories from categories.yaml
         for c in categories:
             category = guild.get_channel(c)
             await category.delete()
