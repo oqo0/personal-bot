@@ -15,8 +15,8 @@ bot = commands.Bot(command_prefix = '!', intents = discord.Intents.all())
 
 # loading all cogs from /modules
 for file in os.listdir('modules'):
-    file = file[:-3] # removing .py
-    bot.load_extension(f"modules.{file}")
+    bot.load_extension(f"modules.{file[:-3]}")
+    print(f"Loaded module {file}")
 
 
 # reading config

@@ -19,11 +19,6 @@ class Reset(commands.Cog, name="Reset"):
         self.bot = bot
 
 
-    @commands.Cog.listener()
-    async def on_ready(self: commands.Context):
-        print('Bot started')
-
-
     @commands.command()
     @has_permissions(administrator=True)
     async def reset(self, ctx: commands.Context):
