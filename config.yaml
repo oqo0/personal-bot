@@ -1,9 +1,8 @@
 bot_status: "Im workin"
 
 
+# this is vere you will get notifications from bot
 notifications_channel: true
-
-
 # do you want to use notes?
 notes_channels: true
 # do you want to use a task manager?
@@ -14,3 +13,8 @@ task_manager: true
 reset_command: true
 # !hard_reset command clears all the channels on the server
 hard_reset_command: true
+
+
+# bot will delete all invites to the server and
+# kick people from server if they join
+server_protection: true

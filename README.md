@@ -5,12 +5,11 @@ This bot was created to make usage of personal servers easier.
 
 ## Functions:
 - Fields for notes
-- Saving messages
 - Task Manager
 - Schedule of completed tasks (productivity chart)
 - Task Reminder
 - The Eisenhower Matrix
-- Protected channels (with a white list)
+- Protected channels
 - Saving content from the internet
 - Copying web pages
 - Search for text on images

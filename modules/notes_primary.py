@@ -54,9 +54,8 @@ class Notes_Primary(commands.Cog, name="Notes_Primary"):
 
 
     @commands.Cog.listener()
-    async def on_button_click(interaction):
+    async def on_button_click(self, interaction: commands.Context):
         print("1123test")
-        # Pin message with a button
         if interaction.component.id == "pin_note":
             await interaction.message.pin()
             print('Pinned a note')
