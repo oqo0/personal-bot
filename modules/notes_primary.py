@@ -1,11 +1,10 @@
+from code import interact
 from unicodedata import category
 import discord
 from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
-from discord_components import Button, DiscordComponents
-from discord_components.component import ButtonStyle
+from discord.ui import Button, View
 from numpy import true_divide
-import os.path
 from datetime import datetime
 import yaml
 from random import randrange
@@ -16,11 +15,22 @@ import main
 main = main.bot
 
 
+class PinButton(Button):
+    async def callback(self, interaction):
+        await interaction.message.pin()
+        print('Message was pinned')
+
+
+class MoveToBinButton(Button):
+    async def callback(self, interaction):
+        await interaction.message.delete()
+        print('Message was moved to #bin')
+
+
 class Notes_Primary(commands.Cog, name="Notes_Primary"):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
-
-
+    
     @commands.Cog.listener()
     async def on_message(self, message: commands.Context):
         # no need to respond to yourself
@@ -39,26 +49,30 @@ class Notes_Primary(commands.Cog, name="Notes_Primary"):
                 embed.add_field(name=f"Note", value=message.content)
                 embed.set_footer(text=f"{datetime.now().strftime('%Y.%m.%d %H:%M:%S')}")
 
+                button_pin = PinButton(
+                    label = "Pin note",
+                    style=discord.ButtonStyle.gray,
+                    emoji="📌",
+                    custom_id="pin_note"
+                )
+                button_tobin = MoveToBinButton(
+                    label = "Move to #bin",
+                    style=discord.ButtonStyle.red,
+                    emoji="🗑️",
+                    custom_id="to_bin"
+                )
+
+                view = View()
+                view.add_item(button_pin)
+                view.add_item(button_tobin)
+
                 await channel.send(
                     embed=embed,
-                    components = [
-                        [
-                            Button(label="Pin note", emoji="📌", custom_id = "pin_note", style=ButtonStyle.gray),
-                            Button(label="Move to Bin", emoji="🗑️", custom_id = "move_to_bin", style=ButtonStyle.gray)
-                        ]
-                    ]
+                    view=view
                 )
 
                 await message.delete()
                 print('Note created.')
-
-
-    @commands.Cog.listener()
-    async def on_button_click(self, interaction: commands.Context):
-        print("1123test")
-        if interaction.component.id == "pin_note":
-            await interaction.message.pin()
-            print('Pinned a note')
 
 
 def setup(bot: commands.Bot):

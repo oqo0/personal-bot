@@ -2,8 +2,6 @@ from unicodedata import category
 import discord
 from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
-from discord_components import Button, DiscordComponents
-from discord_components.component import ButtonStyle
 from numpy import true_divide
 import os.path
 from datetime import datetime

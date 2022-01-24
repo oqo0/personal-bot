@@ -11,7 +11,6 @@ This bot was created to make usage of personal servers easier.
 - The Eisenhower Matrix
 - Protected channels
 - Saving content from the internet
-- Copying web pages
 - Search for text on images
 - FIGfont generator
 
