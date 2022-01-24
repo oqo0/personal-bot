@@ -23,7 +23,13 @@ class PinButton(Button):
 
 class MoveToBinButton(Button):
     async def callback(self, interaction):
+        with open('data/channels.yaml') as f:
+            channels = yaml.safe_load(f)
+
+        channel = self.bot.get_channel(channels[2])
+        await channel.send(interaction.message.content)
         await interaction.message.delete()
+        
         print('Message was moved to #bin')
 
 
