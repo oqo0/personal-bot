@@ -5,26 +5,23 @@ This bot was created to make usage of personal servers easier.
 
 ## Functions:
 - Fields for notes
+- Protected channels
+
 - Task Manager
 - Schedule of completed tasks (productivity chart)
 - Task Reminder
 - The Eisenhower Matrix
-- Protected channels
-- Saving content from the internet
-- Search for text on images
-- FIGfont generator
 
 ## Installation
 
 1. Install Python 3.9 or newer.
 ```
-sudo apt install python3.9
+sudo apt-get install python3.9
 ```
 
-2. Install the packages.
+2. Install discord.py package.
 ```
-pip install discord.py
-pip install --upgrade discord-components
+pip install -U git+https://github.com/Rapptz/discord.py
 ```
 
 3. Create an Application on Discord Developers portal:
@@ -43,4 +40,4 @@ You are ready to go!
 ```!setup``` - install all channels and categoried to start working with the bot. <br/> 
 ```!reset``` - delete all the channels and categories that were created by a bot. <br/> 
 ```!hard_reset``` - delete all the channels and categories on the server. <br/> 
-
+```!restart``` - restart all modules from /modules directory <br/> 
