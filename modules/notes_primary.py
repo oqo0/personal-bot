@@ -1,3 +1,4 @@
+from cProfile import label
 from code import interact
 from unicodedata import category
 import discord
@@ -12,7 +13,7 @@ from random import randrange
 import main
 
 
-main = main.bot
+bot = main.bot
 
 
 class PinButton(Button):
@@ -22,12 +23,21 @@ class PinButton(Button):
 
 
 class MoveToBinButton(Button):
+    def __init__(self):
+        super().__init__(
+                    label = "Move to #bin",
+                    style=discord.ButtonStyle.red,
+                    emoji="🗑️",
+                    custom_id="to_bin"
+        )
+
     async def callback(self, interaction):
         with open('data/channels.yaml') as f:
             channels = yaml.safe_load(f)
 
-        channel = self.bot.get_channel(channels[2])
-        await channel.send(interaction.message.content)
+        channel = bot.get_channel(channels[3])
+
+        await channel.send(embed = interaction.message.embeds[0])
         await interaction.message.delete()
         
         print('Message was moved to #bin')
@@ -52,8 +62,7 @@ class Notes_Primary(commands.Cog, name="Notes_Primary"):
                 channel = self.bot.get_channel(message.channel.id)
 
                 embed = discord.Embed(color=discord.Colour.from_rgb(randrange(0, 255), randrange(0, 255), randrange(0, 255))) # taking a random color for each note
-                embed.add_field(name=f"Note", value=message.content)
-                embed.set_footer(text=f"{datetime.now().strftime('%Y.%m.%d %H:%M:%S')}")
+                embed.add_field(name=datetime.now().strftime('%d.%m.%Y %H:%M'), value=message.content)
 
                 button_pin = PinButton(
                     label = "Pin note",
@@ -61,12 +70,7 @@ class Notes_Primary(commands.Cog, name="Notes_Primary"):
                     emoji="📌",
                     custom_id="pin_note"
                 )
-                button_tobin = MoveToBinButton(
-                    label = "Move to #bin",
-                    style=discord.ButtonStyle.red,
-                    emoji="🗑️",
-                    custom_id="to_bin"
-                )
+                button_tobin = MoveToBinButton()
 
                 view = View()
                 view.add_item(button_pin)
