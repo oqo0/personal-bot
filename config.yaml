@@ -15,6 +15,7 @@ reset_command: true
 hard_reset_command: true
 
 
-# bot will delete all invites to the server and
-# kick people from server if they join
-server_protection: true
+# delete all new invites on the server
+remove_invite: true
+# kick everyone who joins the server
+kick_everyone: true
