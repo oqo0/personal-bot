@@ -25,10 +25,10 @@ class PinButton(Button):
 class MoveToBinButton(Button):
     def __init__(self):
         super().__init__(
-                    label = "Move to #bin",
-                    style=discord.ButtonStyle.red,
-                    emoji="🗑️",
-                    custom_id="to_bin"
+            label = "Move to #bin",
+            style=discord.ButtonStyle.gray,
+            emoji="🗑️",
+            custom_id="to_bin"
         )
 
     async def callback(self, interaction):
@@ -37,10 +37,28 @@ class MoveToBinButton(Button):
 
         channel = bot.get_channel(channels[3])
 
-        await channel.send(embed = interaction.message.embeds[0])
+        button_delete = DeleteButton()
+
+        view2 = View()
+        view2.add_item(button_delete)
+
+        await channel.send(embed = interaction.message.embeds[0], view = view2)
         await interaction.message.delete()
         
         print('Message was moved to #bin')
+
+
+class DeleteButton(Button):
+    def __init__(self: commands.Bot):
+        super().__init__(
+            label = "Delete",
+            style=discord.ButtonStyle.red,
+            emoji="❕"
+        )
+
+    async def callback(self, interaction):
+        await interaction.message.delete()
+        print('Message was deleted')
 
 
 class Notes_Primary(commands.Cog, name="Notes_Primary"):
