@@ -8,7 +8,7 @@ This bot was created to make usage of personal servers easier.
 - Protected channels
 
 - Task Manager
-- Schedule of completed tasks (productivity chart)
+- Productivity chart
 - Task Reminder
 - The Eisenhower Matrix
 

@@ -82,6 +82,9 @@ class Notes_Primary(commands.Cog, name="Notes_Primary"):
                 embed = discord.Embed(color=discord.Colour.from_rgb(randrange(0, 255), randrange(0, 255), randrange(0, 255))) # taking a random color for each note
                 embed.add_field(name=datetime.now().strftime('%d.%m.%Y %H:%M'), value=message.content)
 
+                if message.attachments != []:
+                    embed.set_image(url=message.attachments[0])
+
                 button_pin = PinButton(
                     label = "Pin note",
                     style=discord.ButtonStyle.gray,
