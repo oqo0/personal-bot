@@ -7,11 +7,6 @@ This bot was created to make usage of personal servers easier.
 - Fields for notes
 - Protected channels
 
-- Task Manager
-- Productivity chart
-- Task Reminder
-- The Eisenhower Matrix
-
 ## Installation
 
 1. Install Python 3.9 or newer.
