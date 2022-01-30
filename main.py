@@ -19,9 +19,7 @@ for file in os.listdir('modules'):
     print(f"Loaded module {file}")
 
 
-# reading config
 if (os.path.isfile('config.yaml') == True):
-    # reading config
     with open("config.yaml", "r") as stream:
         config = yaml.safe_load(stream)
 
