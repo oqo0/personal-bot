@@ -9,7 +9,7 @@ import yaml
 # disabling bytecode (__pycache__)
 sys.dont_write_bytecode = True
 
-
+З
 bot = commands.Bot(command_prefix = '!', intents = discord.Intents.all())
 
 
@@ -19,7 +19,7 @@ for file in os.listdir('modules'):
     print(f"Loaded module {file}")
 
 
-# reading config
+# reading config file
 if (os.path.isfile('config.yaml') == True):
     with open("config.yaml", "r") as stream:
         config = yaml.safe_load(stream)
