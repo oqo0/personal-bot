@@ -1,5 +1,8 @@
 # Personal Discord Bot
 
+> **This project will stay unfinished.**  
+Discord.py support was officially discontinued, so it doesn't make much sense to develop a bot using this library.  
+
 This bot was created to make usage of personal servers easier.
 > Keep in mind that this bot was designed ONLY for usage on a private personal servers.
 
